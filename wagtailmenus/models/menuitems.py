@@ -9,7 +9,7 @@ from wagtail.core.models import Page, Orderable
 
 from wagtailmenus.conf import settings
 from wagtailmenus.managers import MenuItemManager
-
+from wagtail.api import APIField
 
 #########################################################
 # Base classes
@@ -147,6 +147,14 @@ class AbstractMenuItem(models.Model, MenuItem):
         FieldPanel('link_text'),
         FieldPanel('handle'),
         FieldPanel('allow_subnav'),
+    ]
+
+    api_fields = [
+        APIField('link_page'),
+        APIField('link_url'),
+        APIField('url_append'),
+        APIField('link_text'),
+        APIField('handle') 
     ]
 
 
